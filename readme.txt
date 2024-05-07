@@ -8,7 +8,7 @@ Displays Nexai AI Chat Bubble in every Wordpress page
 
 == Description ==
 
-To use this plugin create an account at https://nexai.site
+To use this plugin create a free account at https://nexai.site
 
 The Plugin creates an AI Live Support Chat for your visitors. 
 Your team can handle requests in the Nexai Chat Dashboard.
