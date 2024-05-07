@@ -5,7 +5,7 @@
  */
 /*
 Plugin Name: Nexai Chat
-Plugin URI: https://nexai.site/docs/wordpress-nexai-chat
+Plugin URI: https://nexai.site/docs/wordpress-ai-chat
 Description: Displays Nexai AI Live Support Chat Bubble in every Wordpress page
 Author: nexai.site
 Version: 1.0.0
@@ -26,7 +26,7 @@ function nexai_chat_js() {
   $jsBuffer .= "  nexaiApiKey: '" . trim(get_option('nexai_chat_api_key', '')) . "',\n";
   $jsBuffer .= "  aiName: '" . trim(get_option('nexai_chat_ai_name', 'AI Assistant')) . "',\n";
   $jsBuffer .= "  aiAvatarUrl: '" . trim(get_option('nexai_chat_ai_avatar_url', '')) . "',\n";
-  $jsBuffer .= "  projectName: '" . trim(get_option('nexai_chat_project_name', 'this Website')) . "',\n";
+  $jsBuffer .= "  projectName: '" . trim(get_option('nexai_chat_project_name', '')) . "',\n";
   $jsBuffer .= "  inputPlaceholder: '" . trim(get_option('nexai_chat_input_placeholder', '')) . "',\n";
   $jsBuffer .= "  chatSuggests: '" . get_option('nexai_chat_chat_suggests', '') . "',\n"; 
   $jsBuffer .= "  integration: 'wordpress',\n"; 
@@ -125,7 +125,7 @@ function nexai_plugin_register_settings() {
   add_settings_field('nexai_chat_width', 'Width', 'nexai_field_cb', 'nexai_chat_settings', 'nexai_chat_display_settings_section',                                 array('name' => 'nexai_chat_width', 'default' => '400'));
   add_settings_field('nexai_chat_bottom', 'Bottom (pixels from bottom of page)', 'nexai_field_cb', 'nexai_chat_settings', 'nexai_chat_display_settings_section',  array('name' => 'nexai_chat_bottom', 'default' => '60'));
   add_settings_field('nexai_chat_right', 'Right (pixels from right of page)', 'nexai_field_cb', 'nexai_chat_settings', 'nexai_chat_display_settings_section',     array('name' => 'nexai_chat_right', 'default' => '60'));
-  add_settings_field('nexai_chat_project_name', 'Project Name', 'nexai_field_cb', 'nexai_chat_settings', 'nexai_chat_display_settings_section',                   array('name' => 'nexai_chat_project_name'));
+  add_settings_field('nexai_chat_project_name', 'Project Name', 'nexai_field_cb', 'nexai_chat_settings', 'nexai_chat_display_settings_section',                   array('name' => 'nexai_chat_project_name', 'default' => get_bloginfo('name', 'display')));
   add_settings_field('nexai_chat_input_placeholder', 'Input Placeholder', 'nexai_field_cb', 'nexai_chat_settings', 'nexai_chat_display_settings_section',         array('name' => 'nexai_chat_input_placeholder', 'default' => 'Ask a question...'));
   add_settings_field('nexai_chat_nexai_io_url', 'Nexai IO URL', 'nexai_field_cb', 'nexai_chat_settings', 'nexai_chat_advanced_settings_section',                  array('name' => 'nexai_chat_nexai_io_url'));
   add_settings_field('nexai_chat_assets_url', 'Nexai Assets URL', 'nexai_field_cb', 'nexai_chat_settings', 'nexai_chat_advanced_settings_section',                array('name' => 'nexai_chat_assets_url'));
